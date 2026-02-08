@@ -44,6 +44,7 @@ class JustAudioOutput implements AudioOutput {
     );
 
     await player.setVolume(effectiveVolume);
+    await player.pause();
     await player.seek(Duration.zero);
     await player.play();
   }

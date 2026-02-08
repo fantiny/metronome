@@ -23,6 +23,11 @@ class JustAudioPlayerPort implements AudioPlayerPort {
   }
 
   @override
+  Future<void> pause() async {
+    await _player.pause();
+  }
+
+  @override
   Future<void> setVolume(double volume) async {
     await _player.setVolume(volume);
   }

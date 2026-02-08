@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:rythemtick/domain/entities/beat_event.dart';
+import 'package:provider/provider.dart';
 import 'package:rythemtick/domain/entities/metronome_settings.dart';
 import 'package:rythemtick/domain/repositories/settings_repository.dart';
 import 'package:rythemtick/domain/services/audio_output.dart';
 import 'package:rythemtick/domain/services/metronome_engine.dart';
 import 'package:rythemtick/domain/services/wake_lock_service.dart';
-import 'package:rythemtick/main.dart';
 import 'package:rythemtick/presentation/controllers/metronome_controller.dart';
+import 'package:rythemtick/presentation/pages/metronome_page.dart';
+import 'package:rythemtick/domain/entities/beat_event.dart';
 
 class _StubSettingsRepository implements SettingsRepository {
   @override
@@ -59,7 +60,7 @@ class _StubWakeLockService implements WakeLockService {
 }
 
 void main() {
-  testWidgets('应用启动后显示主标题', (tester) async {
+  testWidgets('主页展示 BPM 与开始按钮', (tester) async {
     final controller = MetronomeController(
       engine: _StubEngine(),
       audioOutput: _StubAudioOutput(),
@@ -69,9 +70,23 @@ void main() {
 
     await controller.initialize();
 
-    await tester.pumpWidget(MetronomeApp(controller: controller));
+    await tester.pumpWidget(
+      ChangeNotifierProvider.value(
+        value: controller,
+        child: const MaterialApp(
+          home: MetronomePage(),
+        ),
+      ),
+    );
+
     await tester.pumpAndSettle();
 
-    expect(find.text('节拍器'), findsWidgets);
+    expect(find.text('120 BPM'), findsOneWidget);
+    expect(find.text('开始'), findsOneWidget);
+    expect(find.text('强拍'), findsOneWidget);
+    expect(find.byKey(const Key('beat-dot-1')), findsOneWidget);
+    expect(find.byKey(const Key('beat-dot-2')), findsOneWidget);
+    expect(find.byKey(const Key('beat-dot-3')), findsOneWidget);
+    expect(find.byKey(const Key('beat-dot-4')), findsOneWidget);
   });
 }

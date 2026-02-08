@@ -18,6 +18,9 @@ class _FakeAudioPlayerPort implements AudioPlayerPort {
   }
 
   @override
+  Future<void> pause() async {}
+
+  @override
   Future<void> seek(Duration position) async {
     lastSeek = position;
   }
