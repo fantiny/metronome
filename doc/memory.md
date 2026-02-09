@@ -11,3 +11,9 @@
 - 设置页：默认 BPM/音色/音量/静音/阻止休眠
 - 防休眠：仅播放时启用，默认开启
 - 权限策略：同一工具前缀一旦授权，后续参数变化不再询问；删除等危险操作仍需确认
+
+## Android 构建经验
+
+- Gradle 代理配置位于 `C:\Users\fantiny\.gradle\gradle.properties`，当前使用 `127.0.0.1:7890`。
+- 若构建卡住且 `gradle-7.5.1-bin.zip.part/.lck` 为 0 字节，多为分发包下载中断，可先清理再重新构建。
+- 方法数超 64K 需要启用 MultiDex（`android/app/build.gradle`）。

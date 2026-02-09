@@ -8,4 +8,6 @@
 - [x] 设置页完成
 - [x] 防休眠功能完成
 - [x] 测试完成
+- [x] Android 构建修复（minSdkVersion + MultiDex）
+- [x] 模拟器验证（Pixel_9_Pro_XL）
 - [ ] 文档收尾
