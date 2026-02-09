@@ -42,3 +42,10 @@ flutter run -d <device-id>
 ### 常见问题排查
 - 签名失败：在 Xcode 登录 Apple ID 并启用自动签名
 - Pod 依赖问题：`cd ios && pod install`
+
+## 当前进度总结（2026-02-09）
+
+- Android：`minSdkVersion` 已提升到 19，已启用 MultiDex；模拟器 Pixel_9_Pro_XL 运行通过。
+- 构建：Gradle 代理已配置（127.0.0.1:7890），并处理过分发包下载中断问题。
+- iOS：已补充完整测试流程（需 macOS + Xcode）。
+- 仍待完成：在 macOS 上进行 iOS 真机/模拟器实际验证。
