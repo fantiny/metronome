@@ -10,6 +10,7 @@
 - 2026-02-08：启用 Windows Desktop 平台并生成 windows 目录。
 - 2026-02-09：Android 构建启用 MultiDex（方法数超 64K），模拟器 Pixel_9_Pro_XL 测试通过。
 - 2026-02-09：补充 iOS 测试流程说明（macOS + Xcode 环境）。
+- 2026-02-10：GitHub 仓库已创建并推送，默认分支切换为 main，清理 feature/metronome 分支。
 
 ## iOS 测试流程（macOS + Xcode）
 
