@@ -30,6 +30,7 @@
 .pub-cache/
 .pub/
 build/
+publish/
 lib/generated_plugin_registrant.dart
 
 # Android related
